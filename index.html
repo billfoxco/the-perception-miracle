@@ -5,25 +5,51 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>The Perception Miracle has moved</title>
 
-    <!-- If you want instant redirect, set content="0". I suggest 2 seconds. -->
-    <meta http-equiv="refresh" content="3; url=https://billfox.co" />
+    <!-- Auto-redirect after 2 seconds -->
+    <meta http-equiv="refresh" content="2; url=https://billfox.co/books" />
 
     <style>
-      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-             margin: 0; padding: 48px 20px; background: #fff; color: #111; }
-      .wrap { max-width: 720px; margin: 0 auto; }
-      h1 { font-size: 28px; margin: 0 0 10px; }
-      p { font-size: 18px; line-height: 1.5; margin: 0 0 14px; color: #333; }
-      a { color: #111; }
-      .small { font-size: 14px; color: #666; margin-top: 18px; }
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 48px 20px;
+        background: #fff;
+        color: #111;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 28px;
+        margin: 0 0 10px;
+      }
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 0 0 14px;
+        color: #333;
+      }
+      a {
+        color: #111;
+      }
+      .small {
+        font-size: 14px;
+        color: #666;
+        margin-top: 18px;
+      }
     </style>
 
     <script>
-      // Optional: preserve the path + query when redirecting
-      // Example: theperceptionmiracle.com/chapter-3 -> billfox.co/chapter-3
+      // Preserve path + query if present
+      // Example: theperceptionmiracle.com/chapter-3 -> billfox.co/books/chapter-3
       (function () {
-        var target = "https://billfox.co" + window.location.pathname + window.location.search + window.location.hash;
-        setTimeout(function () { window.location.replace(target); }, 2000);
+        var base = "https://billfox.co/books";
+        var path = window.location.pathname === "/" ? "" : window.location.pathname;
+        var target = base + path + window.location.search + window.location.hash;
+        setTimeout(function () {
+          window.location.replace(target);
+        }, 2000);
       })();
     </script>
   </head>
@@ -31,9 +57,15 @@
   <body>
     <div class="wrap">
       <h1>This has moved.</h1>
-      <p><strong>The Perception Miracle</strong> now lives at <a href="https://billfox.co">billfox.co</a>.</p>
+      <p>
+        <strong>The Perception Miracle</strong> is now part of the collection at
+        <a href="https://billfox.co/books">billfox.co/books</a>.
+      </p>
       <p>You’ll be redirected automatically.</p>
-      <p class="small">If nothing happens, click: <a href="https://billfox.co">https://billfox.co</a></p>
+      <p class="small">
+        If nothing happens, click:
+        <a href="https://billfox.co/books">https://billfox.co/books</a>
+      </p>
     </div>
   </body>
 </html>
